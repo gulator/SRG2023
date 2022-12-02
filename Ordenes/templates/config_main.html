@@ -1,0 +1,46 @@
+{% extends 'base_principal.html' %}
+{% load static %}
+
+{% block titulo %}Configuracion{% endblock %}
+
+{% block bloque-main %}
+
+<section class="cont_config">
+  <div class="cont_config_principal">
+    <h2>Audio</h2>
+    <div class="cont_config_botones">
+      <button class="botones_config">
+        <a href="{% url 'config_audio_producto' %}">Producto</a>
+      </button>
+      <button class="botones_config">
+        <a href="{% url 'config_audio_motivo' %}">Motivo</a>
+      </button>
+      <button class="botones_config">
+        <a href="{% url 'inicio' %}">Estado</a>
+      </button>
+    </div>
+  </div>
+  <div class="cont_config_principal">
+    <h2>Alarmas</h2>
+    <div class="cont_config_botones">
+      <button class="botones_config">
+        <a href="{% url 'inicio' %}">Producto</a>
+      </button>
+      <button class="botones_config">
+        <a href="{% url 'inicio' %}">Motivo</a>
+      </button>
+      <button class="botones_config">
+        <a href="{% url 'inicio' %}">Estado</a>
+      </button>
+    </div>
+  </div>
+  <div class="cont_config_principal izquierda">
+      <button class="botones_config">
+        <a href="{% url 'config_cig' %}">CIG</a>
+      </button>      
+  </div>
+
+</section>
+
+
+{% endblock %}

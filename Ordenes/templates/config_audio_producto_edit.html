@@ -1,0 +1,25 @@
+{% extends 'base_principal.html' %}
+{% load static %}
+
+{% block titulo %}Audio | Editar producto{% endblock %}
+
+{% block bloque-main %}
+
+<div class="cont-config-edit">
+    <div class="titulo">
+        <h2>Configuración | Editar producto Audio</h2>
+    </div>
+    <section>
+        <form class="formulario" action="" method="POST">
+            {% csrf_token %}
+            {% if item %}
+            <label for="productoAudio"><strong>Editar Producto Audio:</strong></label>
+            <input class="campo-input" type="text" name="productoAudio" id="productoAudio" value="{{item.productoAudio}}">
+            <input class="boton-comun enviar" type="submit">
+            {% endif %}
+        </form>
+    </section>
+</div>
+
+
+{% endblock %}

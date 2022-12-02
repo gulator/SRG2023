@@ -1,44 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-    {% load static %}
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends 'base_principal.html' %}
+{% load static %}
 
-    <title>Garantías 2023</title>
+{% block titulo %}Configuracion{% endblock %}
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+{% block bloque-main %}
 
-    <link rel="stylesheet" href="{% static 'Ordenes/css/style.css' %}">
-</head>
-
-<body>
-    <header>
-
-    </header>
-    <main>
-        <aside>
-            <div class="cont-main-side">
-                <ul>
-                    <li><a href="#"><span class="cont-menu"><img src="" alt=""></span><span>SRG</span></a></li>
-                    <li class="nav-men"><a class="cont-menu" href="#"><span class="span1"><img class="side-menu-icon"
-                                    src="img/dashboard.svg" alt=""></span><span>Dashboard</span></a></li>
-                    <li class="nav-men"><a class="cont-menu" href="#"><span class="span1"><img class="side-menu-icon"
-                                    src="img/ordenes.svg" alt=""></span><span>Ordenes</span></a></li>
-                    <li class="nav-men"><a class="cont-menu" href="#"><span class="span1"><img class="side-menu-icon"
-                                    src="img/usuarios.svg" alt=""></span><span>Usuarios</span></a></li>
-                    <li class="nav-men"><a class="cont-menu" href="#"><span class="span1"><img class="side-menu-icon"
-                                    src="img/settings.svg" alt=""></span><span>Configuracion</span></a></li>
-                    <li class="nav-men"><a class="cont-menu" href="#"><span class="span1"><img class="side-menu-icon"
-                                    src="img/stock.svg" alt=""></span><span>Stock</span></a></li>
-    
-                </ul>
-            </div>
-        </aside>
-        <section class="contPrincipal" id="contPrincipal">
             <div class="headerMain">
 
             </div>
@@ -72,13 +38,4 @@
                 </tbody>
 
             </table>
-        </section>
-    </main>
-    <footer>
-
-    </footer>
-
-    <script src="js/main.js"></script>
-</body>
-
-</html>
+        {% endblock %}

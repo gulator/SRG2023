@@ -1,0 +1,25 @@
+{% extends 'base_principal.html' %}
+{% load static %}
+
+{% block titulo %}Audio | Nuevo motivo{% endblock %}
+
+{% block bloque-main %}
+
+<div class="cont-config-edit">
+    <div class="titulo">
+        <h2>Configuración | Nuevo motivo Audio</h2>
+    </div>
+    <section>
+        <form class="formulario" action="" method="POST">
+            {% csrf_token %}
+            
+            <label for="motivoAudio"><strong>Nuevo Motivo Audio:</strong></label>
+            <input class="campo-input" type="text" name="motivoAudio" id="motivoAudio">
+            <input class="boton-comun enviar" type="submit">
+            
+        </form>
+    </section>
+</div>
+
+
+{% endblock %}

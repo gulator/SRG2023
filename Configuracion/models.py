@@ -11,20 +11,30 @@ class CIG(models.Model):
 
 
 class MotivoAudio(models.Model):
-    tipo = models.CharField(max_length=60)
+    motivoAudio = models.CharField(max_length=60)
+
+    def __str__(self):
+       return f'Motivo_Audio: {self.motivoAudio}'
 
 
 class MotivoAlarma(models.Model):
-    tipo = models.CharField(max_length=60)
+    motivoAlarma = models.CharField(max_length=60)
 
 
-class Estado(models.Model):
-    estado = models.CharField(max_length=60)
+class EstadoAudio(models.Model):
+    estadoAudio = models.CharField(max_length=60)
+
+
+class EstadoAlarma (models.Model):
+    estadoAlarma = models.CharField(max_length=60)
 
 
 class ProductoAudio(models.Model):
-    audio = models.CharField(max_length=80)
+    productoAudio = models.CharField(max_length=80)
+
+    def __str__(self):
+       return f'Producto_Audio: {self.productoAudio}'
 
 
 class ProductoAlarmas(models.Model):
-    alarmas = models.CharField(max_length=60)
+    productoAlarmas = models.CharField(max_length=60)
