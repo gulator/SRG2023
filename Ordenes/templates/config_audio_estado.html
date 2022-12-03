@@ -1,0 +1,40 @@
+{% extends 'base_principal.html' %}
+{% load static %}
+
+{% block titulo %}Audio | Estado{% endblock %}
+
+{% block bloque-main %}
+<div class="cont-config-edit">
+    <div class="titulo">
+        <h2>Configuración | Listado Audio - Estado</h2>
+    </div>
+    <section>
+    <button class="boton-comun agregar">
+       <a href="{% url 'add_item_audio_estado' %}">Nuevo</a> 
+    </button>
+    </section>
+    <table class="table table-hover tabla-personalizada">
+      <thead class="redondeada">
+        <tr class=" table table-secondary">
+          <th scope="col">#</th>
+          <th scope="col">Estado</th>
+          <th scope="col">Accion</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for n in audio_estado %}
+        <tr>
+          <th scope="row">{{ forloop.counter }}</th>
+          <td>{{n.estadoAudio}}</td>
+          <td><a href="{% url 'del_item_audio_estado' n.id %}"><img class="side-menu-icon bordeaux" src="{% static 'Ordenes/img/trash.svg' %}"
+            alt="imagen"></a><a href="{% url 'edit_item_audio_estado' n.id %}"><img class="side-menu-icon oscuro" src="{% static 'Ordenes/img/edit.svg' %}"
+              alt="imagen"></a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+
+</div>
+
+
+{% endblock %}

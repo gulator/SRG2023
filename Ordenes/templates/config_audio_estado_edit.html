@@ -1,20 +1,20 @@
 {% extends 'base_principal.html' %}
 {% load static %}
 
-{% block titulo %}Audio | Editar motivo{% endblock %}
+{% block titulo %}Audio | Editar estado{% endblock %}
 
 {% block bloque-main %}
 
 <div class="cont-config-edit">
     <div class="titulo">
-        <h2>Configuración | Editar motivo Audio</h2>
+        <h2>Configuración | Editar estado Audio</h2>
     </div>
     <section>
         <form class="formulario" action="" method="POST">
             {% csrf_token %}
             {% if item %}
-            <label for="motivoAudio"><strong>Editar Motivo Audio:</strong></label>
-            <input class="campo-input" type="text" name="motivoAudio" id="motivoAudio" value="{{item.motivoAudio}}">
+            <label for="estadoAudio"><strong>Editar Estado Audio:</strong></label>
+            <input class="campo-input" type="text" name="estadoAudio" id="estadoAudio" value="{{item.estadoAudio}}">
             <input class="boton-comun enviar" type="submit">
             {% endif %}
         </form>

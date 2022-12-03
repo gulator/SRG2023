@@ -131,3 +131,84 @@ def add_item_audio_motivo(request):
             return render(request, 'config_audio_motivo.html', {'audio_motivo': productos})
 
     return render(request, 'config_audio_motivo_add.html')
+
+
+# ------ AUDIO ESTADO ------
+
+def config_audio_estado(request):
+    productos = EstadoAudio.objects.all().order_by('estadoAudio')
+    return render(request, 'config_audio_estado.html', {'audio_estado': productos})
+
+
+def del_item_audio_estado(request, id):
+    item = EstadoAudio.objects.get(id=id)
+    item.delete()
+    productos = EstadoAudio.objects.all().order_by('estadoAudio')
+    return render(request, 'config_audio_estado.html', {'audio_estado': productos})
+
+
+def edit_item_audio_estado(request, id):
+    productos = EstadoAudio.objects.all().order_by('estadoAudio')
+    item = EstadoAudio.objects.get(id=id)
+    if request.method == "POST":
+        formulario = AudioEstado(request.POST)
+        if formulario.is_valid():
+            datos = formulario.cleaned_data
+            item.estadoAudio = datos['estadoAudio']
+            item.save()
+        return render(request, 'config_audio_estado.html', {'audio_estado': productos})
+    return render(request, 'config_audio_estado_edit.html', {'item': item})
+
+
+def add_item_audio_estado(request):
+
+    if request.method == "POST":
+        formulario = AudioEstado(request.POST)
+        if formulario.is_valid():
+            datos = formulario.cleaned_data
+            item = EstadoAudio(estadoAudio=datos['estadoAudio'])
+            item.save()
+            productos = EstadoAudio.objects.all().order_by('estadoAudio')
+            return render(request, 'config_audio_estado.html', {'audio_estado': productos})
+
+    return render(request, 'config_audio_estado_add.html')
+
+# ------ ALARMA PRODUCTO ------
+
+def config_alarma_producto(request):
+    productos = ProductoAlarmas.objects.all().order_by('productoAlarmas')
+    return render(request, 'config_alarma_producto.html', {'alarma_producto': productos})
+
+
+def del_item_alarma_producto(request, id):
+    item = ProductoAlarmas.objects.get(id=id)
+    item.delete()
+    productos = ProductoAlarmas.objects.all().order_by('productoAlarmas')
+    return render(request, 'config_alarma_producto.html', {'alarma_producto': productos})
+
+
+def edit_item_alarma_producto(request, id):
+    productos = ProductoAlarmas.objects.all().order_by('productoAlarmas')
+    item = ProductoAlarmas.objects.get(id=id)
+    if request.method == "POST":
+        formulario = AlarmasProductos(request.POST)
+        if formulario.is_valid():
+            datos = formulario.cleaned_data
+            item.productoAlarmas = datos['productoAlarmas']
+            item.save()
+        return render(request, 'config_alarma_producto.html', {'alarma_producto': productos})
+    return render(request, 'config_alarma_producto_edit.html', {'item': item})
+
+
+def add_item_alarma_producto(request):
+
+    if request.method == "POST":
+        formulario = AlarmasProductos(request.POST)
+        if formulario.is_valid():
+            datos = formulario.cleaned_data
+            item = ProductoAlarmas(productoAlarmas=datos['productoAlarmas'])
+            item.save()
+            productos = ProductoAlarmas.objects.all().order_by('productoAlarmas')
+            return render(request, 'config_alarma_producto.html', {'alarma_producto': productos})
+
+    return render(request, 'config_alarma_producto_add.html')

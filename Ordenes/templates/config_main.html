@@ -5,7 +5,10 @@
 
 {% block bloque-main %}
 
-<section class="cont_config">
+<section class="cont-config-edit">
+  <div class="titulo">
+    <h2>Configuración</h2>
+  </div>
   <div class="cont_config_principal">
     <h2>Audio</h2>
     <div class="cont_config_botones">
@@ -16,7 +19,7 @@
         <a href="{% url 'config_audio_motivo' %}">Motivo</a>
       </button>
       <button class="botones_config">
-        <a href="{% url 'inicio' %}">Estado</a>
+        <a href="{% url 'config_audio_estado' %}">Estado</a>
       </button>
     </div>
   </div>
@@ -24,7 +27,7 @@
     <h2>Alarmas</h2>
     <div class="cont_config_botones">
       <button class="botones_config">
-        <a href="{% url 'inicio' %}">Producto</a>
+        <a href="{% url 'config_alarma_producto' %}">Producto</a>
       </button>
       <button class="botones_config">
         <a href="{% url 'inicio' %}">Motivo</a>

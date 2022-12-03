@@ -7,3 +7,5 @@ from Ordenes.models import *
 admin.site.register (CIG)
 admin.site.register (ProductoAudio)
 admin.site.register (MotivoAudio)
+admin.site.register (EstadoAudio)
+admin.site.register (ProductoAlarmas)

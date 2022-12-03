@@ -157,13 +157,13 @@ td, th {
   align-items: flex-end; }
 
 .cont-config-edit {
-  width: calc(60vw - 250px);
+  width: calc(90vw - 250px);
   display: flex;
   flex-direction: column;
   align-items: center; }
 
 .tabla-personalizada {
-  width: calc(60vw - 250px);
+  width: calc(90vw - 250px);
   background-color: white; }
 
 td, th {
@@ -207,7 +207,10 @@ td, th {
   border-radius: 5px;
   border: 1px solid gray; }
   .campo-input:focus {
-    outline: 0.5px solid green; }
+    border: 0px solid gray;
+    outline: 1px solid green; }
+  .campo-input:selection {
+    outline: 1px solid green; }
 
 .formulario {
   display: flex;
