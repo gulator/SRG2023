@@ -1,16 +1,16 @@
 {% extends 'base_principal.html' %}
 {% load static %}
 
-{% block titulo %}Audio | Motivo{% endblock %}
+{% block titulo %}Alarma | Motivo{% endblock %}
 
 {% block bloque-main %}
 <div class="cont-config-edit">
     <div class="titulo">
-        <h2>Configuración | Listado Audio - Motivo</h2>
+        <h2>Configuración | Listado Alarma - Motivo</h2>
     </div>
     <section>
     <button class="boton-comun agregar">
-       <a href="{% url 'add_item_audio_motivo' %}">Nuevo</a> 
+       <a href="{% url 'add_item_alarma_motivo' %}">Nuevo</a> 
     </button>
     </section>
     <table class="table table-hover tabla-personalizada">
@@ -22,12 +22,12 @@
         </tr>
       </thead>
       <tbody>
-        {% for n in audio_motivo %}
+        {% for n in alarma_motivo %}
         <tr>
           <th scope="row">{{ forloop.counter }}</th>
-          <td>{{n.motivoAudio}}</td>
-          <td><a href="{% url 'del_item_audio_motivo' n.id %}"><img class="side-menu-icon bordeaux" src="{% static 'Ordenes/img/trash.svg' %}"
-            alt="imagen"></a><a href="{% url 'edit_item_audio_motivo' n.id %}"><img class="side-menu-icon oscuro" src="{% static 'Ordenes/img/edit.svg' %}"
+          <td>{{n.motivoAlarma}}</td>
+          <td><a href="{% url 'del_item_alarma_motivo' n.id %}"><img class="side-menu-icon bordeaux" src="{% static 'Ordenes/img/trash.svg' %}"
+            alt="imagen"></a><a href="{% url 'edit_item_alarma_motivo' n.id %}"><img class="side-menu-icon oscuro" src="{% static 'Ordenes/img/edit.svg' %}"
               alt="imagen"></a></td>
         </tr>
         {% endfor %}

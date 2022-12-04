@@ -1,0 +1,25 @@
+{% extends 'base_principal.html' %}
+{% load static %}
+
+{% block titulo %}Alarma | Editar motivo{% endblock %}
+
+{% block bloque-main %}
+
+<div class="cont-config-edit">
+    <div class="titulo">
+        <h2>Configuración | Editar motivo Alarma</h2>
+    </div>
+    <section>
+        <form class="formulario" action="" method="POST">
+            {% csrf_token %}
+            {% if item %}
+            <label for="motivoAlarma"><strong>Editar Motivo Alarma:</strong></label>
+            <input class="campo-input" type="text" name="motivoAlarma" id="motivoAlarma" value="{{item.motivoAlarma}}">
+            <input class="boton-comun enviar" type="submit">
+            {% endif %}
+        </form>
+    </section>
+</div>
+
+
+{% endblock %}

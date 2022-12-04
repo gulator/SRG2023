@@ -20,6 +20,9 @@ class MotivoAudio(models.Model):
 class MotivoAlarma(models.Model):
     motivoAlarma = models.CharField(max_length=60)
 
+    def __str__(self):
+       return f'Motivo_Alarma: {self.motivoAlarma}'
+
 
 class EstadoAudio(models.Model):
     estadoAudio = models.CharField(max_length=60)

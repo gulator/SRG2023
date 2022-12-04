@@ -212,3 +212,43 @@ def add_item_alarma_producto(request):
             return render(request, 'config_alarma_producto.html', {'alarma_producto': productos})
 
     return render(request, 'config_alarma_producto_add.html')
+
+# ------ ALARMA MOTIVO ------
+
+def config_alarma_motivo(request):
+    productos = MotivoAlarma.objects.all().order_by('motivoAlarma')
+    return render(request, 'config_alarma_motivo.html', {'alarma_motivo': productos})
+
+
+def del_item_alarma_motivo(request, id):
+    item = MotivoAlarma.objects.get(id=id)
+    item.delete()
+    productos = MotivoAlarma.objects.all().order_by('motivoAlarma')
+    return render(request, 'config_alarma_motivo.html', {'alarma_motivo': productos})
+
+
+def edit_item_alarma_motivo(request, id):
+    productos = MotivoAlarma.objects.all().order_by('motivoAlarma')
+    item = MotivoAlarma.objects.get(id=id)
+    if request.method == "POST":
+        formulario = AlarmaMotivo(request.POST)
+        if formulario.is_valid():
+            datos = formulario.cleaned_data
+            item.motivoAlarma = datos['motivoAlarma']
+            item.save()
+        return render(request, 'config_alarma_motivo.html', {'alarma_motivo': productos})
+    return render(request, 'config_alarma_motivo_edit.html', {'item': item})
+
+
+def add_item_alarma_motivo(request):
+
+    if request.method == "POST":
+        formulario = AlarmaMotivo(request.POST)
+        if formulario.is_valid():
+            datos = formulario.cleaned_data
+            item = MotivoAlarma(motivoAlarma=datos['motivoAlarma'])
+            item.save()
+            productos = MotivoAlarma.objects.all().order_by('motivoAlarma')
+            return render(request, 'config_alarma_motivo.html', {'alarma_motivo': productos})
+
+    return render(request, 'config_alarma_motivo_add.html')

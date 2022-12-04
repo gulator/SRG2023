@@ -14,4 +14,7 @@ class AudioEstado (forms.Form):
     estadoAudio = forms.CharField(max_length=60)
 
 class AlarmasProductos (forms.Form):
-    productoAlarmas = forms.CharField(max_length=80)    
+    productoAlarmas = forms.CharField(max_length=80)
+
+class AlarmaMotivo (forms.Form):
+    motivoAlarma = forms.CharField(max_length=60)
