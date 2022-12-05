@@ -1,0 +1,25 @@
+{% extends 'base_principal.html' %}
+{% load static %}
+
+{% block titulo %}Alarma | Nuevo estado{% endblock %}
+
+{% block bloque-main %}
+
+<div class="cont-config-edit">
+    <div class="titulo">
+        <h2>Configuración | Nuevo Estado Alarma</h2>
+    </div>
+    <section>
+        <form class="formulario" action="" method="POST">
+            {% csrf_token %}
+            
+            <label for="estadoAlarma"><strong>Nuevo Estado Alarma:</strong></label>
+            <input class="campo-input" type="text" name="estadoAlarma" id="estadoAlarma">
+            <input class="boton-comun enviar" type="submit">
+            
+        </form>
+    </section>
+</div>
+
+
+{% endblock %}

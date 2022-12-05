@@ -18,3 +18,8 @@ class AlarmasProductos (forms.Form):
 
 class AlarmaMotivo (forms.Form):
     motivoAlarma = forms.CharField(max_length=60)
+
+class AlarmaEstado (forms.Form):
+    estadoAlarma = forms.CharField(max_length=60)
+
+    

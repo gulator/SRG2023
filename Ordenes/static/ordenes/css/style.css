@@ -28,6 +28,10 @@ body {
   margin: 15px;
   /*background-color: green;*/ }
 
+.cont_config_botones {
+  display: flex;
+  flex-wrap: wrap; }
+
 .headerMain {
   background: yellow;
   width: 100%;

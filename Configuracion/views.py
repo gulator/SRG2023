@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from Configuracion.models import *
 from Configuracion.forms import *
+import csv
+import codecs
+from django.http import HttpResponse
 
 
 def inicio(request):
@@ -252,3 +255,69 @@ def add_item_alarma_motivo(request):
             return render(request, 'config_alarma_motivo.html', {'alarma_motivo': productos})
 
     return render(request, 'config_alarma_motivo_add.html')
+
+
+# ------ ALARMA ESTADO ------
+
+def config_alarma_estado(request):
+    productos = EstadoAlarma.objects.all().order_by('estadoAlarma')
+    return render(request, 'config_alarma_estado.html', {'alarma_estado': productos})
+
+
+def del_item_alarma_estado(request, id):
+    item = EstadoAlarma.objects.get(id=id)
+    item.delete()
+    productos = EstadoAlarma.objects.all().order_by('estadoAlarma')
+    return render(request, 'config_alarma_estado.html', {'alarma_estado': productos})
+
+
+def edit_item_alarma_estado(request, id):
+    productos = EstadoAlarma.objects.all().order_by('estadoAlarma')
+    item = EstadoAlarma.objects.get(id=id)
+    if request.method == "POST":
+        formulario = AlarmaEstado(request.POST)
+        if formulario.is_valid():
+            datos = formulario.cleaned_data
+            item.estadoAlarma = datos['estadoAlarma']
+            item.save()
+        return render(request, 'config_alarma_estado.html', {'alarma_estado': productos})
+    return render(request, 'config_alarma_estado_edit.html', {'item': item})
+
+
+def add_item_alarma_estado(request):
+
+    if request.method == "POST":
+        formulario = AlarmaEstado(request.POST)
+        if formulario.is_valid():
+            datos = formulario.cleaned_data
+            item = EstadoAlarma(estadoAlarma=datos['estadoAlarma'])
+            item.save()
+            productos = EstadoAlarma.objects.all().order_by('estadoAlarma')
+            return render(request, 'config_alarma_estado.html', {'alarma_estado': productos})
+
+    return render(request, 'config_alarma_estado_add.html')
+
+
+
+# --- LOADER ---
+
+def cargar (request):
+    return render (request,'loader.html')
+
+def funcion_loader (request):
+
+    with codecs.open("C:\\Users\\gulad\\OneDrive\\Documentos\\Python\\GARANTIAS-2023\\audio_motivo.csv", "r", encoding="ANSI") as f1:
+    
+                csv_reader = csv.reader(f1,delimiter=";")                
+                for n in csv_reader:
+                    print(n)
+                    nuevo = AudioMotivo({'motivoAudio':n[1]})
+                    
+                    if nuevo.is_valid():
+                        datos = nuevo.cleaned_data
+                        crear = MotivoAudio(motivoAudio=datos['motivoAudio'])
+                    #crear = nuevo.save()                    
+                    crear.save()
+                f1.close()  
+                        
+                return HttpResponse('Loader Finalizado')

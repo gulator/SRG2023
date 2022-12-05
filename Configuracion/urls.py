@@ -34,4 +34,12 @@ urlpatterns = [
     path('edit_item_alarma_motivo/<int:id>', views.edit_item_alarma_motivo, name='edit_item_alarma_motivo'),
     path('add_item_alarma_motivo', views.add_item_alarma_motivo, name='add_item_alarma_motivo'),
 
+    path('config_alarma_estado', views.config_alarma_estado, name='config_alarma_estado'),
+    path('del_item_alarma_estado/<int:id>', views.del_item_alarma_estado, name='del_item_alarma_estado'),
+    path('edit_item_alarma_estado/<int:id>', views.edit_item_alarma_estado, name='edit_item_alarma_estado'),
+    path('add_item_alarma_estado', views.add_item_alarma_estado, name='add_item_alarma_estado'), 
+
+    path('cargar',views.cargar, name='cargar'),
+    path('funcion_loader', views.funcion_loader, name="funcion_loader")
+
 ]

@@ -34,6 +34,8 @@ class EstadoAudio(models.Model):
 class EstadoAlarma (models.Model):
     estadoAlarma = models.CharField(max_length=60)
 
+    def __str__(self):
+       return f'Estado_Alarma: {self.estadoAlarma}'
 
 class ProductoAudio(models.Model):
     productoAudio = models.CharField(max_length=80)

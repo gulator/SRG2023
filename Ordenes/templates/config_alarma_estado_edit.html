@@ -1,0 +1,25 @@
+{% extends 'base_principal.html' %}
+{% load static %}
+
+{% block titulo %}Alarma | Editar estado{% endblock %}
+
+{% block bloque-main %}
+
+<div class="cont-config-edit">
+    <div class="titulo">
+        <h2>Configuración | Editar estado Alarma</h2>
+    </div>
+    <section>
+        <form class="formulario" action="" method="POST">
+            {% csrf_token %}
+            {% if item %}
+            <label for="estadoAlarma"><strong>Editar Estado Alarma:</strong></label>
+            <input class="campo-input" type="text" name="estadoAlarma" id="estadoAlarma" value="{{item.estadoAlarma}}">
+            <input class="boton-comun enviar" type="submit">
+            {% endif %}
+        </form>
+    </section>
+</div>
+
+
+{% endblock %}
