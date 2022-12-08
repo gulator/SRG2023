@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from Configuracion.models import *
 from Configuracion.forms import *
+from django.contrib.auth import login, logout, authenticate
 import csv
 import codecs
 from django.http import HttpResponse
@@ -321,3 +322,44 @@ def funcion_loader (request):
                 f1.close()  
                         
                 return HttpResponse('Loader Finalizado')
+def login_request(request):
+    if request.user.is_authenticated:
+
+            return render(
+            request, "index.html")    
+
+    else:
+        
+        if request.method == "POST":
+
+            formulario = Login_formulario(request, data=request.POST)
+
+            if formulario.is_valid():
+                usuario = formulario.cleaned_data.get("username")
+                contrasenia = formulario.cleaned_data.get("password")
+
+                user = authenticate(username=usuario, password=contrasenia)
+
+                if user is not None:
+                    login(request, user)
+                    return render(request, "index.html")
+                else:
+                    return render(
+                        request, "login.html", {"mensaje": "Error. Formulario erroneo."}
+                    )
+
+            else:
+                formulario = Login_formulario()
+                return render(
+                    request,
+                    "login.html",
+                    {
+                        "formulario": formulario,
+                        "mensaje": "Error. Datos de ingreso incorrectos",
+                    },
+                )
+
+        formulario = Login_formulario()
+
+        return render(request, "login.html", {"formulario": formulario})
+        

@@ -1,0 +1,40 @@
+{% extends 'base_login.html' %}
+{% load static %}
+
+
+{% block bloque-main %}
+
+<main class="mainLogin">
+    <img class="logoPositron" src="{% static 'ordenes/img/logo-positron.png' %}" alt="">
+    <section class="login">
+        {% if usuario_creado %}
+        <div class="alert alert-success" role="alert" style="text-align: center;">
+            {{usuario_creado}}
+        </div>
+        {% endif %}
+        <div class="containerLogin ">
+            <div class="extrasLogin">
+                <h5>Sistema de Registro de Garantías</h5>
+            </div>
+            <div>
+                <form class="formulario" action="" method="POST">
+                    {% csrf_token %}
+    
+                    {{formulario.as_p}}
+    
+                    <input class="boton-comun enviar" type="submit" value="ingresar">
+                </form>
+
+            </div>
+            <!-- <div class="extrasLogin">
+                <p><a href="{% url 'password_reset' %}">¿Olvidó su contraseña?</a></p>            
+                <a href="{% url 'Register' %}">Registrarse</a>
+            </div> -->
+            
+        </div>
+    </section>
+    
+
+</main>
+
+{% endblock %}

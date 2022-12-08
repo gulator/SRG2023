@@ -10,6 +10,9 @@ a {
   color: #f2f4f6; }
 
 aside {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 250px;
   height: 100vh;
   background: #1f2937;
@@ -28,9 +31,34 @@ body {
   margin: 15px;
   /*background-color: green;*/ }
 
+.contLogin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(to Bottom, #1f2937, #293648); }
+
 .cont_config_botones {
   display: flex;
   flex-wrap: wrap; }
+
+.extrasLogin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px; }
+  .extrasLogin a {
+    color: #1f2937;
+    margin-bottom: 5px; }
+  .extrasLogin p {
+    margin: 0px; }
+  .extrasLogin h5 {
+    font-size: 1.25rem;
+    color: #1f2937;
+    font-weight: bold;
+    margin-bottom: 20px; }
 
 .headerMain {
   background: yellow;
@@ -52,8 +80,54 @@ li {
   display: flex;
   align-items: center; }
 
+.cerrarSesion {
+  font-size: 0.8rem;
+  font-weight: lighter;
+  margin-bottom: 15px;
+  color: #56ab2f; }
+
+.login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 300px);
+  min-height: 270px;
+  min-width: 300px;
+  width: calc(100vw - 200px);
+  max-width: 450px;
+  background: #f2f4f6;
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px #1a222d; }
+
+.registro {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: calc(100vh - 100px);
+  min-height: 270px;
+  min-width: 300px;
+  width: calc(100vw - 200px);
+  max-width: 450px;
+  background: #f2f4f6;
+  border-radius: 10px;
+  box-shadow: 2px 2px 4px #1a222d; }
+
+.logoPositron {
+  width: 350px;
+  margin-bottom: 15px; }
+
+.errolist {
+  color: f2f4f6;
+  margin-bottom: 0px; }
+
 main {
   display: flex; }
+
+.mainLogin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly; }
 
 .nav-men {
   display: flex;
@@ -220,12 +294,14 @@ td, th {
   display: flex;
   flex-direction: column;
   align-items: center; }
+  .formulario ul {
+    display: none !important; }
 
 .titulo {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: calc(100vw - 250px);
+  width: calc(99vw - 250px);
   height: 100px;
   background: linear-gradient(to bottom, #bbd2c5, #536976);
   margin-bottom: 20px; }
